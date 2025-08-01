@@ -13,6 +13,7 @@
     {{#articleList}}
         <tr>
             <th>{{id}}</th>
+            <td><a href="/articles/{{id}}">{{title}}</a></td>
             <td>{{title}}</td>
             <td>{{content}}</td>
         </tr>
@@ -20,5 +21,7 @@
 
     </tbody>
 </table>
+
+<a href="/articles/new">New Article</a>
 
 {{>layouts/footer}}

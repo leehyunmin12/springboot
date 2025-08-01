@@ -34,7 +34,7 @@ public class MemberController {
         log.info(member.toString());
         Member saved = memberRepository.save(member);
         log.info(saved.toString());
-        return "members/new";
+        return "redirect:/members/"+saved.getId();
     }
 
     @GetMapping("/members/{id}")
@@ -49,5 +49,11 @@ public class MemberController {
         ArrayList<Member> Allmember = memberRepository.findAll();
         model.addAttribute("MemberList",Allmember);
         return "members/index";
+    }
+
+    @GetMapping("/members/{id}/edit")
+    public String edit(@PathVariable Long id, Model model){
+
+        return "members/edit";
     }
 }
