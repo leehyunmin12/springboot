@@ -2,24 +2,25 @@ package com.example.fisrtproject.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 @Entity
-public class Member {
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name="article_id")
+    private Article article;
     @Column
-    private String email;
+    private String nickname;
     @Column
-    private String password;
+    private String body;
 
-    public Long getId(){
-        return id;
-    }
 }
-
